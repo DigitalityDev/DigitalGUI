@@ -11,9 +11,11 @@ If you like our project, please join our [Discord](https://discord.gg/5ewrdq4g6Z
   - [Maven](#maven-1)
   - [Gradle](#gradle-1)
 - [3. GUI Usage](#3-gui-usage)
+    - [3.0 Registering the API](#30-registering-the-api)
   - [3.1 Creating a GUI](#31-creating-a-gui)
   - [3.2 Opening a GUI](#32-opening-a-gui)
 - [4. InteractiveItem Usage](#4-interactiveitem-usage)
+  - [4.0 Registering the API](#40-registering-the-api)
   - [4.1 What is an InteractiveItem?](#41-what-is-an-interactiveitem)
   - [4.2 Creating an InteractiveItem](#42-creating-an-interactiveitem)
   - [4.3 Setting the click handler](#43-setting-the-click-handler)
@@ -101,6 +103,14 @@ shadowJar {
 
 ## 3. GUI Usage
 This isn't what exactly makes the GUI interactive, please check the section below.
+### 3.0 Registering the API
+To register the API, you need to call the `DigitalGUI.register()` method. You can (and should) do this in your `onEnable()` method. You need to do this only once.
+```java
+@Override
+public void onEnable() {
+    DigitalGUI.register(this);
+}
+```
 
 ### 3.1 Creating a GUI
 To create a GUI you need to make a separate class implementing the `IGUI` interface and `getInventory()` method.
@@ -129,6 +139,14 @@ player.openInventory(new ExampleGUI(player).getInventory());
 ```
 
 ## 4. InteractiveItem Usage
+### 4.0 Registering the API
+To register the API, you need to call the `DigitalGUI.register()` method. You can (and should) do this in your `onEnable()` method. You need to do this only once.
+```java
+@Override
+public void onEnable() {
+    DigitalGUI.register(this);
+}
+```
 ### 4.1 What is an InteractiveItem?
 InteractiveItem serves as a clickable **drop-in replacement for ItemStack**. This means, that everything you can do with ItemStacks works with InteractiveItems as well.
 InteractiveItem also works with **both InventoryClickEvent and PlayerInteractEvent**. This means, that you can use InteractiveItems in both GUIs and in the world.
