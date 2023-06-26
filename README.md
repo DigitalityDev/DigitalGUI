@@ -1,5 +1,6 @@
 # DigitalGUI
 ### Modern GUI system for Developers
+If you like our project, please join our [Discord](https://discord.gg/5ewrdq4g6Z)!
 
 ## Table of Contents
 - [0. Features](#0-features)
@@ -31,21 +32,33 @@
 ## 1. Installation
 ### Maven
 ```xml
-<repository>
-    <id>jitpack.io</id>
-    <url>https://jitpack.io</url>
-</repository>
-<dependency>
-    <groupId>com.github.DigitalityDev</groupId>
-    <artifactId>DigitalGUI</artifactId>
-    <version>1.0.0</version>
-</dependency>
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+    <!-- For some reason, nbt-api breaks the project if you don't use CodeMC repo too -->
+    <repository>
+        <id>codemc-repo</id>
+        <url>https://repo.codemc.org/repository/maven-public/</url>
+    </repository>
+</repositories>
+<dependencies>
+  <dependency>
+      <groupId>com.github.DigitalityDev</groupId>
+      <artifactId>DigitalGUI</artifactId>
+      <version>1.0.0</version>
+  </dependency>
+</dependencies>
 ```
 
 ### Gradle
 ```groovy
 repositories {
     maven { url "https://jitpack.io" }
+  
+    // For some reason, nbt-api breaks the project if you don't use CodeMC repo too
+    maven { url "https://repo.codemc.org/repository/maven-public/" }
 }
 
 dependencies {
