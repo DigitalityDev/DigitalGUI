@@ -33,6 +33,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.UUID;
 import java.util.logging.Level;
@@ -53,7 +54,7 @@ public class DigitalGUI {
      * @param plugin The plugin instance.
      */
     public static void register(Plugin plugin) {
-        if (DigitalGUI.class.getPackage().getName().equals("dev.digitality" + ".digitalgui.DigitalGUI")) // Bypass relocation of strings
+        if (Arrays.equals(DigitalGUI.class.getPackage().getName().split("\\."), new String[] {"dev", "digitality", "digitalgui"})) // Relocation relocates strings too, so we have to use the array method. Credits: Item-NBT-API, bStats
             LOGGER.log(Level.SEVERE, "DigitalGUI was shaded but not transformed! This is prone to errors! Please nag the author of " + plugin.getName() + " to use the relocation according to README!");
 
         Bukkit.getPluginManager().registerEvents(new GUIClickListener(), plugin);

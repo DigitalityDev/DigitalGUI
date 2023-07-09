@@ -49,7 +49,7 @@ If you like our project, please join our [Discord](https://discord.gg/5ewrdq4g6Z
   <dependency>
       <groupId>com.github.DigitalityDev</groupId>
       <artifactId>DigitalGUI</artifactId>
-      <version>1.0.0</version>
+      <version>1.0.1</version>
   </dependency>
 </dependencies>
 ```
@@ -64,7 +64,7 @@ repositories {
 }
 
 dependencies {
-    implementation "com.github.DigitalityDev:DigitalGUI:1.0.0"
+    implementation "com.github.DigitalityDev:DigitalGUI:1.0.1"
 }
 ```
 
