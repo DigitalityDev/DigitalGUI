@@ -1,11 +1,16 @@
 plugins {
     id "java-library"
+    id "maven-publish"
     id "com.github.johnrengelman.shadow" version "8.1.1"
 }
 
 group = "dev.digitality"
 version = "1.0.1"
 description = "DigitalGUI"
+
+java.sourceCompatibility = JavaLanguageVersion.of(8)
+java.targetCompatibility = JavaLanguageVersion.of(8)
+compileJava.options.encoding = "UTF-8"
 
 repositories {
     mavenCentral()
@@ -40,6 +45,30 @@ shadowJar {
     archiveClassifier = null
 }
 
-java.sourceCompatibility = JavaLanguageVersion.of(8)
-java.targetCompatibility = JavaLanguageVersion.of(8)
-compileJava.options.encoding = "UTF-8"
+publishing {
+    repositories {
+        maven {
+            name "digitalityRepoReleases"
+            url "https://repo.digitality.dev/releases"
+
+            credentials {
+                username project.findProperty("digitalityRepo.username") ?: System.getenv("DIGITALITY_REPO_USERNAME")
+                password project.findProperty("digitalityRepo.password") ?: System.getenv("DIGITALITY_REPO_PASSWORD")
+            }
+
+            authentication {
+                basic(BasicAuthentication)
+            }
+        }
+    }
+
+    publications {
+        maven(MavenPublication) { publication ->
+            groupId = this.group
+            artifactId = this.name.toLowerCase()
+            version = this.version
+
+            from(project.shadow.component(publication))
+        }
+    }
+}

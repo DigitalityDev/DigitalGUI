@@ -36,19 +36,15 @@ If you like our project, please join our [Discord](https://discord.gg/5ewrdq4g6Z
 ```xml
 <repositories>
     <repository>
-        <id>jitpack.io</id>
-        <url>https://jitpack.io</url>
-    </repository>
-    <!-- For some reason, nbt-api breaks the project if you don't use CodeMC repo too -->
-    <repository>
-        <id>codemc-repo</id>
-        <url>https://repo.codemc.org/repository/maven-public/</url>
+        <id>digitality-repo-releases</id>
+        <url>https://repo.digitality.dev/releases</url>
     </repository>
 </repositories>
+
 <dependencies>
   <dependency>
-      <groupId>com.github.DigitalityDev</groupId>
-      <artifactId>DigitalGUI</artifactId>
+      <groupId>dev.digitality</groupId>
+      <artifactId>digitalgui</artifactId>
       <version>1.0.1</version>
   </dependency>
 </dependencies>
@@ -57,14 +53,14 @@ If you like our project, please join our [Discord](https://discord.gg/5ewrdq4g6Z
 ### Gradle
 ```groovy
 repositories {
-    maven { url "https://jitpack.io" }
-  
-    // For some reason, nbt-api breaks the project if you don't use CodeMC repo too
-    maven { url "https://repo.codemc.org/repository/maven-public/" }
+    maven {
+        name "digitalityRepoReleases"
+        url "https://repo.digitality.dev/releases"
+    }
 }
 
 dependencies {
-    implementation "com.github.DigitalityDev:DigitalGUI:1.0.1"
+    implementation "dev.digitality:digitalgui:1.0.1"
 }
 ```
 

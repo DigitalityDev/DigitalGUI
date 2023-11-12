@@ -1,0 +1,25 @@
+name: "Publish to Digitality repo"
+on:
+  push:
+    tags:
+      - "*"
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-java@v3
+        with:
+          cache: "gradle"
+          distribution: "temurin"
+          java-version: 17
+
+      - name: Execute Gradle build
+        run: chmod +x ./gradlew && ./gradlew shadowJar publish
+        env:
+          DIGITALITY_REPO_USERNAME: ${{ secrets.DIGITALITY_REPO_USERNAME }}
+          DIGITALITY_REPO_PASSWORD: ${{ secrets.DIGITALITY_REPO_PASSWORD }}
