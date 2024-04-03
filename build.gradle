@@ -30,7 +30,7 @@ repositories {
 
 dependencies {
     compileOnly "org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT"
-    implementation "de.tr7zw:item-nbt-api:2.11.3"
+    implementation "de.tr7zw:item-nbt-api:2.12.3"
 
     compileOnly "org.jetbrains:annotations:24.0.1"
     compileOnly "org.projectlombok:lombok:1.18.22"
@@ -43,6 +43,11 @@ shadowJar {
     relocate "de.tr7zw.changeme.nbtapi", "dev.digitality.digitalgui.nbtapi"
 
     archiveClassifier = null
+}
+
+tasks.register("sourcesJar", Jar) {
+    archiveClassifier = "sources"
+    from(sourceSets.main.allSource)
 }
 
 publishing {
@@ -69,6 +74,7 @@ publishing {
             version = this.version
 
             from(project.shadow.component(publication))
+            artifact(tasks.sourcesJar)
         }
     }
 }
