@@ -8,7 +8,7 @@ plugins {
 
 group = "dev.digitality"
 description = "DigitalGUI"
-version = "1.1.3"
+version = "1.1.4"
 
 java.toolchain {
     languageVersion = JavaLanguageVersion.of(11)
@@ -29,11 +29,15 @@ repositories {
     maven {
         url = uri("https://repo.codemc.org/repository/maven-public/")
     }
+
+    maven {
+        url = uri("https://maven.elmakers.com/repository/")
+    }
 }
 
 dependencies {
     compileOnly("org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT")
-    implementation("de.tr7zw:item-nbt-api:2.14.1")
+    implementation("de.tr7zw:item-nbt-api:2.15.2")
 
     compileOnly("org.jetbrains:annotations:26.0.2")
     compileOnly("org.projectlombok:lombok:1.18.36")
