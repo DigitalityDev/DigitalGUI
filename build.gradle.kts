@@ -3,12 +3,20 @@ import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 plugins {
     id("java-library")
     id("maven-publish")
-    id("com.gradleup.shadow") version "8.3.6"
+    id("idea")
+    id("com.gradleup.shadow") version "9.3.1"
+}
+
+idea {
+    module {
+        isDownloadSources = true
+        isDownloadJavadoc = true
+    }
 }
 
 group = "dev.digitality"
 description = "DigitalGUI"
-version = "1.1.4"
+version = "1.2.0"
 
 java.toolchain {
     languageVersion = JavaLanguageVersion.of(11)
@@ -37,11 +45,11 @@ repositories {
 
 dependencies {
     compileOnly("org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT")
-    implementation("de.tr7zw:item-nbt-api:2.15.2")
+    implementation("de.tr7zw:item-nbt-api:2.15.5")
 
     compileOnly("org.jetbrains:annotations:26.0.2")
-    compileOnly("org.projectlombok:lombok:1.18.36")
-    annotationProcessor("org.projectlombok:lombok:1.18.36")
+    compileOnly("org.projectlombok:lombok:1.18.42")
+    annotationProcessor("org.projectlombok:lombok:1.18.42")
 }
 
 tasks {

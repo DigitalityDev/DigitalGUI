@@ -121,8 +121,14 @@ public class InteractiveItem extends ItemStack {
             } else {
                 List<String> loreList = new ArrayList<>();
 
-                for (String line : lore)
-                    loreList.addAll(Arrays.asList(line.split("\\n|\\\\n")));
+                for (String line : lore) {
+                    line = line
+                            .replace("\\r\\n", "\n")
+                            .replace("\r\n", "\n")
+                            .replace("\\n", "\n");
+
+                    loreList.addAll(Arrays.asList(line.split("\n")));
+                }
 
                 meta.setLore(loreList);
             }

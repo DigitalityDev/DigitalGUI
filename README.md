@@ -37,7 +37,7 @@ If you like our project, please join our [Discord](https://discord.gg/5ewrdq4g6Z
 <repositories>
     <repository>
         <id>digitality-repo-releases</id>
-        <url>https://repo.digitality.dev/releases</url>
+        <url>https://repo.gold-zone.cz/releases</url>
     </repository>
 </repositories>
 
@@ -45,7 +45,7 @@ If you like our project, please join our [Discord](https://discord.gg/5ewrdq4g6Z
   <dependency>
       <groupId>dev.digitality</groupId>
       <artifactId>digitalgui</artifactId>
-      <version>1.0.1</version>
+      <version>1.2.0</version>
   </dependency>
 </dependencies>
 ```
@@ -55,12 +55,12 @@ If you like our project, please join our [Discord](https://discord.gg/5ewrdq4g6Z
 repositories {
     maven {
         name "digitalityRepoReleases"
-        url "https://repo.digitality.dev/releases"
+        url "https://repo.gold-zone.cz/releases"
     }
 }
 
 dependencies {
-    implementation "dev.digitality:digitalgui:1.0.1"
+    implementation "dev.digitality:digitalgui:1.2.0"
 }
 ```
 
@@ -89,7 +89,7 @@ dependencies {
 ### Gradle
 ```groovy
 plugins {
-    id "com.github.johnrengelman.shadow" version "8.1.1"
+    id "com.github.johnrengelman.shadow" version "9.3.1"
 }
 
 shadowJar {
