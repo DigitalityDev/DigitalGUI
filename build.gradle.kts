@@ -4,7 +4,7 @@ plugins {
     id("java-library")
     id("maven-publish")
     id("idea")
-    id("com.gradleup.shadow") version "9.3.1"
+    id("com.gradleup.shadow") version "9.4.0"
 }
 
 idea {
@@ -16,7 +16,7 @@ idea {
 
 group = "dev.digitality"
 description = "DigitalGUI"
-version = "1.2.0"
+version = "1.3.0"
 
 java.toolchain {
     languageVersion = JavaLanguageVersion.of(11)
@@ -48,8 +48,8 @@ dependencies {
     implementation("de.tr7zw:item-nbt-api:2.15.5")
 
     compileOnly("org.jetbrains:annotations:26.0.2")
-    compileOnly("org.projectlombok:lombok:1.18.42")
-    annotationProcessor("org.projectlombok:lombok:1.18.42")
+    compileOnly("org.projectlombok:lombok:1.18.44")
+    annotationProcessor("org.projectlombok:lombok:1.18.44")
 }
 
 tasks {
@@ -76,11 +76,11 @@ tasks {
 publishing {
     repositories {
         maven {
-            url = uri("https://repo.gold-zone.cz/releases")
+            url = uri("https://maven.digitality.dev/releases")
 
             credentials {
-                username = (project.findProperty("goldzoneRepo.username") ?: System.getenv("GOLDZONE_REPO_USERNAME")) as String?
-                password = (project.findProperty("goldzoneRepo.password") ?: System.getenv("GOLDZONE_REPO_PASSWORD")) as String?
+                username = (project.findProperty("digitalityRepo.username") ?: System.getenv("DIGITALITY_REPO_USERNAME")) as String?
+                password = (project.findProperty("digitalityRepo.password") ?: System.getenv("DIGITALITY_REPO_PASSWORD")) as String?
             }
 
             authentication {
