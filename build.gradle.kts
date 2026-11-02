@@ -16,7 +16,7 @@ idea {
 
 group = "dev.digitality"
 description = "DigitalGUI"
-version = "1.3.0"
+version = "1.3.1"
 
 java.toolchain {
     languageVersion = JavaLanguageVersion.of(11)
@@ -45,7 +45,7 @@ repositories {
 
 dependencies {
     compileOnly("org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT")
-    implementation("de.tr7zw:item-nbt-api:2.15.5")
+    implementation("de.tr7zw:item-nbt-api:2.16.1")
 
     compileOnly("org.jetbrains:annotations:26.0.2")
     compileOnly("org.projectlombok:lombok:1.18.44")
