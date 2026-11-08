@@ -33,6 +33,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerAnimationEvent;
 import org.bukkit.event.player.PlayerAnimationType;
@@ -54,7 +55,10 @@ public class GUIClickListener implements Listener {
 
         boolean isGUIInv = e.getClickedInventory() != null && e.getClickedInventory().getHolder() != null && e.getClickedInventory().getHolder() instanceof IGUI;
 
-        if (isGUIInv || uuid != null) {
+        // Number keys also move the hotbar item when the hovered slot is empty.
+        boolean isInteractiveHotbarItem = e.getClick() == ClickType.NUMBER_KEY && getUUID(player.getInventory().getItem(e.getHotbarButton())) != null;
+
+        if (isGUIInv || uuid != null || isInteractiveHotbarItem) {
             e.setCancelled(true);
             player.updateInventory();
 
